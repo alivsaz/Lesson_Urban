@@ -5,7 +5,8 @@ def custom_write(file_name, strings):
     file = open(file_name, 'w', encoding='utf-8')
     i = 1
     for string in strings:
-        strings_positions[str(i)+', '+str(file.tell())] = string
+        key_dict = (i, file.tell())
+        strings_positions[key_dict] = string
         file.write(string + '\n')
         i += 1
     file.close()
