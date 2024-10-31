@@ -4,6 +4,15 @@ from random import choice
 first = 'Мама мыла раму'
 second = 'Рамена мало было'
 
+print(f'\nПервая часть задания:')
+result1 = list(map(lambda x, y: x == y, first, second))
+print(f'Вариант №1 - list(map(?, first, second)) : {result1}')
+
+result2 = []
+for s1, s2 in zip(first, second):
+    result2 += list(map(lambda x, y: x == y, s1, s2))
+print(f'Вариант №2 - использование zip           : {result2}')
+
 def get_advanced_writer(file_name):
 
     def write_everything(*data_set):
@@ -16,13 +25,14 @@ def get_advanced_writer(file_name):
 write = get_advanced_writer('example.txt')
 write('Это строчка', ['А', 'это', 'уже', 'число', 5, 'в', 'списке'])
 
+print(f'\nВторая часть задания:')
 
 class MysticBall:
 
     def __init__(self, *words):
         self.words = words
 
-    def __call__(self, *words):
+    def __call__(self):
         return choice(self.words)
 
 first_ball = MysticBall('Да', 'Нет', 'Наверное')
